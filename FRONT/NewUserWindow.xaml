@@ -1,0 +1,25 @@
+﻿<Window x:Class="SIMS2020.FRONT.NewUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIMS2020.FRONT"
+        mc:Ignorable="d"
+        Title="REGISTER USER" Height="504.333" Width="427">
+    <Grid Margin="0,0,-20,-1">
+        <TextBox x:Name="tb_firstName" HorizontalAlignment="Left" Height="23" Margin="220,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tb_lastName" HorizontalAlignment="Left" Height="23" Margin="220,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tb_userName" HorizontalAlignment="Left" Height="23" Margin="220,209,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name ="tb_password" HorizontalAlignment="Left" Height="23" Margin="220,261,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Please fill in the information about the new user you want to register:" HorizontalAlignment="Left" Margin="20,49,0,0" VerticalAlignment="Top"/>
+        <Label Content="First Name" HorizontalAlignment="Left" Margin="95,96,0,0" VerticalAlignment="Top"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Margin="95,156,0,0" VerticalAlignment="Top"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="95,209,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="95,261,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_userRole"  HorizontalAlignment="Left" Margin="220,319,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="User role" HorizontalAlignment="Left" Margin="95,319,0,0" VerticalAlignment="Top"/>
+        <Button Content="Register" Click="RegisterButton_Click" HorizontalAlignment="Left" Margin="130,380,0,0" VerticalAlignment="Top" Width="85" Height="34"/>
+        <Button Content="Cancel" Click="Button_Click_Cancel" HorizontalAlignment="Left" Height="34" Margin="265,380,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>

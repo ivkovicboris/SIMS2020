@@ -1,0 +1,26 @@
+﻿<Window x:Class="SIMS2020.FRONT.NewMedicineWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIMS2020.FRONT"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="NEW MEDICINE" Height="350" Width="400">
+    <Grid>
+        <Label Content="PLEASE FILL IN THE INFORMATION FOR THE NEW MEDICINE" HorizontalAlignment="Left" Margin="38,42,0,0" VerticalAlignment="Top"/>
+        <Label Content="CODE: " HorizontalAlignment="Left" Margin="71,96,0,0" VerticalAlignment="Top"/>
+        <Label Content="NAME: " HorizontalAlignment="Left" Margin="71,127,0,0" VerticalAlignment="Top"/>
+        <Label Content="MANUFACTURER: " HorizontalAlignment="Left" Margin="71,158,0,0" VerticalAlignment="Top"/>
+        <Label Content="PRESCRIBED: " HorizontalAlignment="Left" Margin="71,189,0,0" VerticalAlignment="Top"/>
+        <Label Content="PRICE: " HorizontalAlignment="Left" Margin="71,220,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_Code" HorizontalAlignment="Left" Height="23" Margin="202,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tb_Name" HorizontalAlignment="Left" Height="23" Margin="202,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tb_Manufacturer" HorizontalAlignment="Left" Height="23" Margin="202,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cb_Prescribed"  HorizontalAlignment="Left" Margin="202,193,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tb_Price" HorizontalAlignment="Left" Height="23" Margin="202,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="SAVE" Click="Button_Click_SaveMedicine" HorizontalAlignment="Left" Margin="71,278,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="CANCEL" Click="Button_Click_Cancel" HorizontalAlignment="Left" Margin="247,278,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>

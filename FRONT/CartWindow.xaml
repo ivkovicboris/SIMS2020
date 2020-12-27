@@ -1,0 +1,92 @@
+﻿<Window x:Class="SIMS2020.FRONT.CartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIMS2020.FRONT"
+        mc:Ignorable="d"
+      WindowStartupLocation="CenterScreen"
+        Title="NEW CART" Height="639.333" Width="507">
+
+    <Grid Margin="0,10,6,-16" Height="619" VerticalAlignment="Top" HorizontalAlignment="Right" Width="497">
+        <Label Content="SELECT ITEMS TO ADD TO CART" HorizontalAlignment="Left" Margin="101,5,0,0" VerticalAlignment="Top" FontSize="20" Width="320" Height="45"/>
+        <TabControl HorizontalAlignment="Left" Height="76" Margin="6,57,0,0" VerticalAlignment="Top" Width="471">
+            <TabItem Header="MEDICINES">
+                <Grid Background="#FFE5E5E5" Margin="0,12,-1,-3" HorizontalAlignment="Left" Width="466">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="MedicinesTable" ItemsSource="{Binding medicineList}"   AutoGenerateColumns="False" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Margin="10,-18,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}" FontSize="12"/>
+                            <DataGridTextColumn Header="Code" Binding="{Binding Code}" FontSize="12"/>
+                            <DataGridTextColumn Header="Medicine Name" Binding="{Binding Name}" FontSize="12"/>
+                            <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" FontSize="12"/>
+                            <DataGridTextColumn Header="Prescribed" Binding="{Binding Prescribed}" FontSize="12"/>
+                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" FontSize="12"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Label Content="Search medicines: " HorizontalAlignment="Left" Height="32" Margin="272,39,0,0" VerticalAlignment="Top" Width="103"/>
+        <TextBox  x:Name="tb_SearchParamMedicine" HorizontalAlignment="Left" Height="27" Margin="379,39,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="99" TextChanged="SearchMedicineByParam"/>
+        <ComboBox x:Name="cb_Amount"  HorizontalAlignment="Left" Margin="232,138,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Amount" HorizontalAlignment="Left" Height="27" Margin="167,136,0,0" VerticalAlignment="Top" Width="60"/>
+        <Button Content="Add Medicine" Click="Button_Click_AddMedicineToCart" HorizontalAlignment="Left" Height="22" Margin="367,138,0,0" VerticalAlignment="Top" Width="105"/>
+
+        <TabControl HorizontalAlignment="Left" Height="147" Margin="16,181,0,0" VerticalAlignment="Top" Width="471">
+            <TabItem Header="PRESCRIPTION">
+                <Grid Background="#FFE5E5E5" Margin="0,12,-5,-2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="108*"/>
+                        <ColumnDefinition Width="305*"/>
+                        <ColumnDefinition Width="53*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="PrescriptionTable" ItemsSource="{Binding searchPrescriptionList}"   AutoGenerateColumns="False" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Margin="0,-18,0,0" Height="127" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="470">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}" FontSize="12"/>
+                            <DataGridTextColumn Header="Doctor" Width="80" Binding="{Binding DoctorId,Mode=TwoWay}" FontSize="12"/>
+                            <DataGridTextColumn Header="Patient JMBG" Width="100" Binding="{Binding PatientJMBG,Mode=TwoWay}" FontSize="12"/>
+                            <DataGridTextColumn Header="Medicines" Width="80" Binding="{Binding DateTime,Mode=TwoWay}" FontSize="12"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button Content="Add Prescription" Click="Button_Click_AddPrescriptionToCart" HorizontalAlignment="Left" Height="25" Margin="368,333,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button Content="Remove Item" Click="Button_Click_RemoveMedicineFromCart" HorizontalAlignment="Left" Height="34" Margin="367,493,0,0" VerticalAlignment="Top" Width="119"/>
+
+        <Button Content="Check Out" Click="Button_Click_CheckOut" HorizontalAlignment="Left" Height="29" Margin="167,542,0,0" VerticalAlignment="Top" Width="78"/>
+        <Button Content="Cancel" Click="Button_Click_Cancel" HorizontalAlignment="Left" Height="29" Margin="295,542,0,0" VerticalAlignment="Top" Width="80"/>
+        <TabControl HorizontalAlignment="Left" Height="146" Margin="16,350,0,0" VerticalAlignment="Top" Width="471">
+            <TabItem Header="Cart">
+                <Grid Background="#FFE5E5E5" Margin="0,12,-1,-3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="16*"/>
+                        <ColumnDefinition Width="53*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="CartTable" ItemsSource="{Binding cartList}"   AutoGenerateColumns="False" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Margin="0,-18,0,0" Height="127" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="466">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Medicine" Width="100" Binding="{Binding Medicine.Name}" FontSize="12"/>
+                            <DataGridTextColumn Header="Manufacturer" Width="100" Binding="{Binding Medicine.Manufacturer}" FontSize="12"/>
+                            <DataGridTextColumn Header="Price"  Width="100" Binding="{Binding Medicine.Price}" FontSize="12"/>
+                            <DataGridTextColumn Header="Amount"  Binding="{Binding Amount}" FontSize="12"/>
+                            <DataGridTextColumn Header="Total Price"  Width="100"  Binding="{Binding Medicine.Price}" FontSize="12"/>
+
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <TextBox x:Name="totalPrice" HorizontalAlignment="Left" Height="23" Margin="87,504,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="Total Price:" HorizontalAlignment="Left" Margin="15,501,0,0" VerticalAlignment="Top"/>
+        <Label Content="Search prescriptions: " HorizontalAlignment="Left" Height="32" Margin="260,165,0,0" VerticalAlignment="Top" Width="123"/>
+        <TextBox  x:Name="tb_SearchParamPrescription" HorizontalAlignment="Left" Height="27" Margin="388,165,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="99" TextChanged="SearchPrescriptionByParam"/>
+
+    </Grid>
+</Window>

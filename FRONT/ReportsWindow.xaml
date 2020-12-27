@@ -1,0 +1,36 @@
+﻿<Window x:Class="SIMS2020.FRONT.ReportsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIMS2020.FRONT"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="REPORTS" Height="450" Width="800">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="270" Margin="10,95,0,0" VerticalAlignment="Top" Width="776">
+            <TabItem Header="STATISTICS">
+                <Grid Background="#FFE5E5E5" Margin="0,18,0,-18">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="MedicinesTable" ItemsSource="{Binding totalSale}"   AutoGenerateColumns="False" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Margin="10,-18,10,0"  Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Medicine Name" Binding="{Binding Name}" FontSize="16"/>
+                            <DataGridTextColumn Header="Amount" Binding="{Binding TotalAmount}" FontSize="16"/>
+                            <DataGridTextColumn Header="Total Income (rsd)" Binding="{Binding TotalPrice}" FontSize="16"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Label Content="Select Pharmacist: " HorizontalAlignment="Left" Margin="100,55,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label Content="Select Manufacturer: " HorizontalAlignment="Left" Margin="362,55,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="pharmacistsComboBox"  SelectedItem="{Binding User}" DisplayMemberPath="FirstName" SelectedValuePath="Id"  HorizontalAlignment="Left" Margin="210,59,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="FilterByPharmaist" />
+        <ComboBox x:Name="manufacturersComboBox" HorizontalAlignment="Left" Margin="484,59,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="FilterByManufacturer"/>
+        <Label Content="BUSSINES REPORT" HorizontalAlignment="Left" Margin="285,10,0,0" VerticalAlignment="Top" Width="175" FontSize="20" Height="52"/>
+        <Button Content="Home" Click="Button_Click_Home" HorizontalAlignment="Left" Height="36" Margin="30,12,0,0" VerticalAlignment="Top" Width="70" />
+        <Button Content="All Medicines" HorizontalAlignment="Left" Height="37" Margin="670,53,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_AllSoldMedicine"/>
+    </Grid>
+</Window>
